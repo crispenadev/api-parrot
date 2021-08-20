@@ -53,3 +53,11 @@ Vault-Storage necesita variables de entorno para funcionar en diferentes ambient
 - Comando para correr en local
 ![alt text](https://github.com/crispenadev/api-parrot/blob/main/run.png?raw=true)
 
+
+## Swagger
+| Url principal | http://localhost:8080/swagger-ui/index.html |
+| Path explore  | /v3/api-docs |
+- Ejemplo:
+![alt text](https://github.com/crispenadev/api-parrot/blob/main/swagger.png?raw=true)
+
+
