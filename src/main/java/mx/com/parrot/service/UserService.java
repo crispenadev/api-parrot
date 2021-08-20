@@ -1,6 +1,7 @@
 package mx.com.parrot.service;
 
 import java.rmi.RemoteException;
+import java.util.Date;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -13,10 +14,9 @@ import mx.com.parrot.exception.DataNotFoundException;
 import mx.com.parrot.repository.UserRepository;
 
 /**
- * Servicio que provee una interfaz para la invocacion de Web Service SOAP de
- * FileNet
+ * Servicio para la lógica de negocio dedicada a las operaciones de creacion y consulta de un usuario
  * 
- * @author Cristian
+ * @author Cristian Ivan Peña
  *
  */
 @Service
@@ -27,27 +27,31 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 
-	
 	public User save(final UserRequest request) throws RemoteException {
+		LOGGER.info("Init service save user");
+		return userRepository.insert(getUserEntity(request));
+	}
 
+	private User getUserEntity(UserRequest request) {
 		User user = new User();
-
 		user.setName(request.getName());
 		user.setEmail(request.getEmail());
-
-		return userRepository.insert(user);
+		user.setCdate(new Date());
+		return user;
 	}
 
 	
 	
 	public User findByEmail(final String email) throws RemoteException {
-	User cf = userRepository.findByEmail(email);
+		
+		LOGGER.info("Init service find user");
+		User cf = userRepository.findByEmail(email);
 
-	if (cf == null) {
-		throw new DataNotFoundException(email);
-	}
+		if (cf == null) {
+			throw new DataNotFoundException(email);
+		}
 
-	return cf;
+		return cf;
 	}
 
 }

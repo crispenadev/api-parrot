@@ -1,7 +1,7 @@
 package mx.com.parrot.entity;
 
 import java.util.Date;
-import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,6 +12,9 @@ public class Order {
 	
 	
 private String customer;
+
+
+private String userEmail;
 	
 
 
@@ -20,7 +23,7 @@ private String customer;
 	
 	private Date cdate;
 	
-	private HashSet<Product> products;
+	private List<Product> products;
 	
 	
 	public String getCustomer() {
@@ -43,14 +46,6 @@ private String customer;
 	}
 
 
-	public HashSet<Product> getProducts() {
-		return products;
-	}
-
-
-	public void setProducts(HashSet<Product> products) {
-		this.products = products;
-	}
 
 
 	public Date getCdate() {
@@ -61,6 +56,28 @@ private String customer;
 	public void setCdate(Date cdate) {
 		this.cdate = cdate;
 	}
+
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
 
 
 	

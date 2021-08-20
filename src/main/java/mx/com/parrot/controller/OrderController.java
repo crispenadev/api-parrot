@@ -15,7 +15,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import mx.com.parrot.entity.Order;
 import mx.com.parrot.service.OrderService;
-
+/**
+ * Controler rest para invocar los servicios de creacion de Ordenes
+ * 
+ * @author Cristian Ivan Peña
+ *
+ */
 @RestController
 public class OrderController {
 
@@ -26,12 +31,12 @@ public class OrderController {
 	private OrderService orderService;
 
 	
-	@Operation(summary = "Save order with your list products")
+	@Operation(summary = "Save order with your list products and user")
 	@ApiResponse(responseCode = "200", description = "Success Response", content = {
-			@Content(mediaType = "application/json", schema = @Schema(implementation = String.class)) })
-	@PostMapping("api-parrot/order/save")
+			@Content(mediaType = "application/json", schema = @Schema(implementation = Order.class)) })
+	@PostMapping("/api-parrot/order/save")
 	public Order saveOrder(@RequestBody OrderRequest request) throws RemoteException {
-		log.info("Request: "+request);
+		log.info("Paylod in  saverOrder : "+ request);
 		return orderService.save(request);
 	}
 

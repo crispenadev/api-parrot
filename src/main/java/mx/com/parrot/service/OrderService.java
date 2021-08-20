@@ -1,11 +1,7 @@
 package mx.com.parrot.service;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -14,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import mx.com.parrot.controller.OrderRequest;
 import mx.com.parrot.entity.Order;
-import mx.com.parrot.entity.Product;
 import mx.com.parrot.repository.OrderRepository;
 
 /**
@@ -34,31 +29,23 @@ public class OrderService {
 
 	public Order save(final OrderRequest orderRequest) throws RemoteException {
 
+	
+		LOGGER.info("Init service save order");
+		return orderRepository.insert(createOrder(orderRequest));
+		
+		
+	}
+
+	
+	
+	public Order createOrder(OrderRequest orderRequest) {
 		Order order = new Order();
 		order.setCustomer(orderRequest.getCustomer());
 		order.setPrice(orderRequest.getPrice());
-
-		HashMap<String, List<Product>> hashMap = new HashMap<>();
-
-		for (Product p : orderRequest.getProducts()) {
-			if (!hashMap.containsKey(p.getName())) {
-				List<Product> list = new ArrayList<>();
-				list.add(p);
-
-				hashMap.put(p.getName(), list);
-			} else {
-				hashMap.get(p.getName()).add(p);
-			}
-		}
-		
-		
 		order.setCdate(new Date());
-
-	
-
+		order.setUserEmail(orderRequest.getUserEmail());
 		order.setProducts(orderRequest.getProducts());
-
-		return orderRepository.insert(order);
+		return order;
+		
 	}
-
 }

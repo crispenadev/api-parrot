@@ -20,6 +20,12 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.UnsupportedJwtException;
 
+
+/**
+ * Clase para la lógica de autenticaciòn a traves de generación de TOKEN
+ * @author Cristian Ivan Peña
+ *
+ */
 public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
 	private static final String HEADER = "Authorization";

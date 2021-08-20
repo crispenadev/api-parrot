@@ -1,19 +1,22 @@
 package mx.com.parrot.controller;
 
+
+/**
+ * Clase generica para request de peticiones y modelado.
+ * 
+ * @author Cristian Ivan Peña
+ *
+ */
 public class GeneralRequest {
 	
 	
-	private String cdate;
+	
 	
 	private String origin;
 
-	public String getCdate() {
-		return cdate;
-	}
+	
+	private Metadata metadata;
 
-	public void setCdate(String cdate) {
-		this.cdate = cdate;
-	}
 
 	public String getOrigin() {
 		return origin;
@@ -21,6 +24,14 @@ public class GeneralRequest {
 
 	public void setOrigin(String origin) {
 		this.origin = origin;
+	}
+
+	public Metadata getMetadata() {
+		return metadata;
+	}
+
+	public void setMetadata(Metadata metadata) {
+		this.metadata = metadata;
 	}
 
 

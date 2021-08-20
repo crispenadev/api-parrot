@@ -1,5 +1,6 @@
 package mx.com.parrot.entity;
 
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -7,62 +8,35 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "os.user")
 public class User {
 
-	    
-	    public String getEmail() {
+	public String getEmail() {
 		return email;
 	}
-	    
-	    
-	    
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-		@Id
-	    private String email;
-		
-		
-	    public String getUser() {
-			return user;
-		}
 
+	@Id
+	private String email;
 
+	private Date cdate;
 
-		public void setUser(String user) {
-			this.user = user;
-		}
+	private String name;
 
+	public String getName() {
+		return name;
+	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
 
-		public String getToken() {
-			return token;
-		}
+	public Date getCdate() {
+		return cdate;
+	}
 
-
-
-		public void setToken(String token) {
-			this.token = token;
-		}
-		public String getPwd() {
-			return pwd;
-		}
-
-
-
-		public void setPwd(String pwd) {
-			this.pwd = pwd;
-		}
-		private String user;
-	    
-		private String pwd;
-	    private String token;
-	    
-	    private String name;
-		public String getName() {
-			return name;
-		}
-		public void setName(String name) {
-			this.name = name;
-		}
-	   
+	public void setCdate(Date cdate) {
+		this.cdate = cdate;
+	}
 
 }

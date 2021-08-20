@@ -11,7 +11,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-
+/**
+ * Clase de configuración principal de Spring Boot
+ * 
+ * @author Cristian Ivan Peña
+ *
+ */
 @SpringBootApplication
 public class ConfigApplication {
 
@@ -30,7 +35,7 @@ public class ConfigApplication {
 				.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 				.authorizeRequests()
 				.antMatchers(HttpMethod.GET, "/api-parrot/report").permitAll()
-				.antMatchers(HttpMethod.POST, "/api-parrot/user/login").permitAll()
+				.antMatchers(HttpMethod.POST, "/api-parrot/principal/login").permitAll()
 				 .antMatchers(
 		                    HttpMethod.GET,
 		                    "/v3/api-docs",           // swagger

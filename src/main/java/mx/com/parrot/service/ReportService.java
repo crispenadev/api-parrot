@@ -3,6 +3,7 @@ package mx.com.parrot.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -34,32 +35,45 @@ public class ReportService {
 	public Report getReport(ReportRequest request) {
 
 		LOGGER.info(request.getInitDate() + "end" + request.getEndDate());
-		Report r = new Report();
-		List<Product> products = new ArrayList<Product>();
-
+		Report report = new Report();
 		List<Order> orders = orderRepository.findByCdateBetween(request.getInitDate(), request.getEndDate());
+		HashMap<String, List<Product>> mapProductByName = createMapProductName( orders);
+
+		report.setListProductReport(getResponseProduct(mapProductByName));
+		return report;
+	}
+
+	public HashMap<String, List<Product>> createMapProductName(List<Order> orders ) {
+
+		List<Product> products = new ArrayList<>();
+
+		
 
 		for (Order order : orders) {
 
 			products.addAll(order.getProducts());
 		}
-		HashMap<String, List<Product>> hashMap = new HashMap<>();
+		HashMap<String, List<Product>> mapProductByName = new HashMap<>();
 
 		for (Product p : products) {
-			if (!hashMap.containsKey(p.getName())) {
+			if (!mapProductByName.containsKey(p.getName())) {
 				List<Product> list = new ArrayList<>();
 				list.add(p);
 
-				hashMap.put(p.getName(), list);
+				mapProductByName.put(p.getName(), list);
 			} else {
-				hashMap.get(p.getName()).add(p);
+				mapProductByName.get(p.getName()).add(p);
 			}
 		}
 
-		List<ResponseProduct> responseProduct = new ArrayList<>();
+		return mapProductByName;
 
-		for (HashMap.Entry<String, List<Product>> entry : hashMap.entrySet()) {
-			System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+	}
+
+	private List<ResponseProduct> getResponseProduct(HashMap<String, List<Product>> mapProductByName) {
+		List<ResponseProduct> responseProduct = new ArrayList<>();
+		for (Map.Entry<String, List<Product>> entry : mapProductByName.entrySet()) {
+			LOGGER.info("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 
 			Long totalCount = 0L;
 			Double totalPrice = 0.0;
@@ -75,9 +89,7 @@ public class ReportService {
 			rep.setNameProduct(entry.getKey());
 			responseProduct.add(rep);
 		}
-
-		r.setListProductReport(responseProduct);
-		return r;
+		return responseProduct;
 	}
 
 }
