@@ -37,5 +37,19 @@ Vault-Storage necesita variables de entorno para funcionar en diferentes ambient
 | ------ | ------ |
 | spring.data.mongodb.uri |mongodb+srv://dev_parrot:BmLKo95Ji3yDeRod@cluster0.2amei.mongodb.net/parrot_operational?retryWrites=true&w=majority|
 |spring.data.mongodb.database|parrot_operational|
-##  Intalacion
-![alt text](https://github.com/crispenadev/api-parrot/blob/main/mvn.png?raw=true)
+
+##  Intalación
+- Descarga del repositorio y contruccción del proyecto
+> La construccion es median Maven, por ello los comandos aqui expuestos, al tiempo de construir se ejecutaran también las
+>pruebas unitarias
+![alt text](https://github.com/crispenadev/api-parrot/blob/main/StepOne.png?raw=true)
+
+- Ejemplo de ejecucion de pruebas y plugin de cobertura
+![alt text](https://github.com/crispenadev/api-parrot/blob/main/exampleExTest.png?raw=true)
+![alt text](https://github.com/crispenadev/api-parrot/blob/main/cobertura.png?raw=true)
+
+
+## Ejecución y pruebas
+- Comando para correr en local
+![alt text](https://github.com/crispenadev/api-parrot/blob/main/run.png?raw=true)
+
