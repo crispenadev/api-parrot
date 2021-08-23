@@ -55,9 +55,12 @@ Vault-Storage necesita variables de entorno para funcionar en diferentes ambient
 
 
 ## Swagger
-| Url principal | http://localhost:8080/swagger-ui/index.html |
-| Path explore  | /v3/api-docs |
+| Url principal:|http://localhost:8080/swagger-ui/index.html|
+
+| Path explore:|/v3/api-docs|
+
 - Ejemplo:
 ![alt text](https://github.com/crispenadev/api-parrot/blob/main/swagger.png?raw=true)
 
-
+## Testing
+>  Manual de operacion: https://docs.google.com/presentation/d/1x5v4F7zSjhDd6OjbyNmwu6IhMgQw3iGNa8F2tcsvUhU/edit?usp=sharing
