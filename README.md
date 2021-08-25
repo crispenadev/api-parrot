@@ -42,16 +42,16 @@ Vault-Storage necesita variables de entorno para funcionar en diferentes ambient
 - Descarga del repositorio y contruccción del proyecto
 > La construcción es median Maven, por ello los comandos aquí expuestos, al tiempo de construir se ejecutaran también las
 >pruebas unitarias
-![alt text](https://github.com/crispenadev/api-parrot/readmeFiles/blob/main/StepOne.png?raw=true)
+![alt text](https://github.com/crispenadev/api-parrot/blob/main/readmeFiles/StepOne.png?raw=true)
 
 - Ejemplo de ejecucion de pruebas y plugin de cobertura
-![alt text](https://github.com/crispenadev/api-parrot/blob/main/exampleExTest.png?raw=true)
-![alt text](https://github.com/crispenadev/api-parrot/blob/main/cobertura.png?raw=true)
+![alt text](https://github.com/crispenadev/api-parrot/blob/main/readmeFiles/exampleExTest.png?raw=true)
+![alt text](https://github.com/crispenadev/api-parrot/blob/main/readmeFiles/cobertura.png?raw=true)
 
 
 ## Ejecución y pruebas
 - Comando para correr en local
-![alt text](https://github.com/crispenadev/api-parrot/blob/main/run.png?raw=true)
+![alt text](https://github.com/crispenadev/api-parrot/blob/main/readmeFiles/run.png?raw=true)
 
 
 ## Swagger
@@ -60,7 +60,7 @@ Vault-Storage necesita variables de entorno para funcionar en diferentes ambient
 | Path explore:|/v3/api-docs|
 
 - Ejemplo:
-![alt text](https://github.com/crispenadev/api-parrot/blob/main/swagger.png?raw=true)
+![alt text](https://github.com/crispenadev/api-parrot/blob/main/readmeFiles/swagger.png?raw=true)
 
 ## Testing
 >  Manual de operacion: https://docs.google.com/presentation/d/1x5v4F7zSjhDd6OjbyNmwu6IhMgQw3iGNa8F2tcsvUhU/edit?usp=sharing
