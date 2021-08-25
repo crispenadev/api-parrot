@@ -1,6 +1,7 @@
 package mx.com.parrot.controller;
 
 import java.rmi.RemoteException;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import mx.com.parrot.entity.Product;
 import mx.com.parrot.entity.User;
 import mx.com.parrot.service.UserService;
 
@@ -49,6 +51,16 @@ public class UserController {
 		return userService.findByEmail(emailUser);
 	}
 
+
+	
+	@Operation(summary = "Get all users")
+	@ApiResponse(responseCode = "200", description = "Success Response", content = {
+			@Content(mediaType = "application/json") })
+	@GetMapping(value = "/api-parrot/users", produces = "application/json")
+	public List<User> getUsers() throws RemoteException {
+	
+		return userService.findAll();
+	}
 
 
 

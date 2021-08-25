@@ -2,6 +2,7 @@ package mx.com.parrot.service;
 
 import java.rmi.RemoteException;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import mx.com.parrot.controller.UserRequest;
+import mx.com.parrot.entity.Product;
 import mx.com.parrot.entity.User;
 import mx.com.parrot.exception.DataNotFoundException;
 import mx.com.parrot.repository.UserRepository;
@@ -52,6 +54,11 @@ public class UserService {
 		}
 
 		return cf;
+	}
+
+	public List<User> findAll() {
+		return userRepository.findAll();
+		
 	}
 
 }
